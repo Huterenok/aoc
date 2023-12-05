@@ -1,0 +1,7 @@
+.vscode
+.scala-build
+.metals
+.bsp
+target
+project
+.scalafmt.conf
