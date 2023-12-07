@@ -1,6 +1,5 @@
 import scala.io.Source
 import scala.collection.mutable.ArrayBuilder.ofLong
-import scala.util.control.Breaks._
 
 @main def Main = {
   val input = Source.fromFile("input.txt").mkString
@@ -69,4 +68,3 @@ def retrieveSeedsAndMaps(
 
   return SeedsAndMaps(seeds, maps);
 }
-
