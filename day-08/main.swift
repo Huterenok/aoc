@@ -9,29 +9,14 @@ func findDaWay(_ input: String) -> Int {
   let (steps, paths) = retrieveStepsAndPaths(input)
 
   var res = 0
-  var currentStep = paths["AAA"]!
+  var currentStep = "AAA"
 
-  loop: while true {
+  while currentStep != "ZZZ" {
     let strIndex = steps.index(steps.startIndex, offsetBy: res % steps.count)
     let char = steps[strIndex]
 
     res += 1
-
-    switch char {
-    case "R":
-      if currentStep.right == "ZZZ" {
-        break loop
-      } else {
-        currentStep = paths[currentStep.right]!
-      }
-    default:
-      if currentStep.left == "ZZZ" {
-        break loop
-      } else {
-        currentStep = paths[currentStep.left]!
-      }
-    }
-
+    currentStep = char == "R" ? paths[currentStep]!.right : paths[currentStep]!.left
   }
  
   return res
@@ -49,12 +34,7 @@ func findDaGhostWay(_ input: String) -> Int {
         let strIndex = steps.index(steps.startIndex, offsetBy: step % steps.count)
         let char = steps[strIndex]
 
-        if step < 0 { return -1 }
-        if char == "R" {
-          path = paths[path]!.right
-        } else {
-          path = paths[path]!.left
-        }
+        path = char == "R" ? paths[path]!.right : paths[path]!.left
         step += 1
     }
 
@@ -97,14 +77,10 @@ func gcd(_ a: Int, _ b: Int) -> Int {
   }
 }
 
-func lcmOfTwo(_ a: Int, _ b: Int) -> Int {
-  return a / gcd(a, b) * b
+func lcm(_ numbers: [Int]) -> Int {
+  return numbers.reduce(1) { $0 * $1 / gcd($0, $1)  }
 }
 
-func lcm(_ numbers: [Int]) -> Int {
-  guard !numbers.isEmpty else { return 0 }
-  return numbers.reduce(1) { lcmOfTwo($0, $1) }
-}  
 let fileUrl1 = Bundle.main.url(forResource: "example_input1", withExtension: "txt")!
 let fileUrl2 = Bundle.main.url(forResource: "example_input2", withExtension: "txt")!
 
