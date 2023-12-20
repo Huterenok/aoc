@@ -142,7 +142,7 @@ pub fn sendDatShitToWorkflows(input: []const u8) !usize {
     return res;
 }
 
-pub fn ecmps_listectivlySendDatShitToWorkflows(input: []const u8) !usize {
+pub fn effectivlySendDatShitToWorkflows(input: []const u8) !usize {
     var final = std.ArrayList([]Comparison).init(allocator);
     const comparisons = std.ArrayList(Comparison).init(allocator);
     const sys = try SystemData.init(input);
@@ -262,6 +262,6 @@ test "Result 1" {
 }
 
 test "Result 2" {
-    try std.testing.expectEqual(ecmps_listectivlySendDatShitToWorkflows(example_input), 167409079868000);
-    try std.testing.expectEqual(ecmps_listectivlySendDatShitToWorkflows(real_input), 124693661917133);
+    try std.testing.expectEqual(effectivlySendDatShitToWorkflows(example_input), 167409079868000);
+    try std.testing.expectEqual(effectivlySendDatShitToWorkflows(real_input), 124693661917133);
 }
