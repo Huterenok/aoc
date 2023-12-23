@@ -1,6 +1,3 @@
-// Must be rewritten in different language
-// reRIIR
-
 use itertools::Itertools;
 
 fn find_galaxy_distances(input: String, expansion_speed: usize) -> usize {

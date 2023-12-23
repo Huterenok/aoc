@@ -2,48 +2,45 @@ use itertools::Itertools;
 use std::collections::{HashSet, VecDeque};
 
 pub fn energize(grid: &Vec<Vec<Tile>>, start: (i32, i32, i32, i32)) -> usize {
-    let mut stack: VecDeque<(i32, i32, i32, i32)> = VecDeque::from([start]);
+    let mut queue: VecDeque<(i32, i32, i32, i32)> = VecDeque::from([start]);
     let mut set: HashSet<(i32, i32, i32, i32)> = HashSet::new();
 
-    let mut check = vec![vec!['.'; grid[0].len()]; grid.len()];
-
-    while !stack.is_empty() {
-        let (mut x, mut y, dx, dy) = stack.pop_front().unwrap();
+    while !queue.is_empty() {
+        let (mut x, mut y, dx, dy) = queue.pop_front().unwrap();
 
         x += dx;
         y += dy;
         if x < 0 || x as usize >= grid[0].len() || y < 0 || y as usize >= grid.len() {
             continue;
         }
-        check[y as usize][x as usize] = '#';
         let tile = grid[y as usize][x as usize];
 
         if tile == Tile::Dot || (tile == Tile::Vert && dy != 0) || (tile == Tile::Horiz && dx != 0)
         {
             if set.insert((x, y, dx, dy)) {
-                stack.push_back((x, y, dx, dy));
+                queue.push_back((x, y, dx, dy));
             }
         } else if tile == Tile::UpRight {
             let (dx, dy) = (-dy, -dx);
             if set.insert((x, y, dx, dy)) {
-                stack.push_back((x, y, dx, dy));
+                queue.push_back((x, y, dx, dy));
             }
         } else if tile == Tile::UpLeft {
             let (dx, dy) = (dy, dx);
             if set.insert((x, y, dx, dy)) {
-                stack.push_back((x, y, dx, dy));
+                queue.push_back((x, y, dx, dy));
             }
         } else {
             if tile == Tile::Vert {
                 [(0, 1), (0, -1)].into_iter().for_each(|(dx, dy)| {
                     if set.insert((x, y, dx, dy)) {
-                        stack.push_back((x, y, dx, dy));
+                        queue.push_back((x, y, dx, dy));
                     }
                 })
             } else {
                 [(1, 0), (-1, 0)].into_iter().for_each(|(dx, dy)| {
                     if set.insert((x, y, dx, dy)) {
-                        stack.push_back((x, y, dx, dy));
+                        queue.push_back((x, y, dx, dy));
                     }
                 })
             }
