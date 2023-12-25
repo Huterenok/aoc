@@ -4,33 +4,33 @@ Performing each day of Advent of Code day in a different language
 
 ## Languages
 
-| Day | Language    | Link                 |
-| :-: | ----------- | -------------------- |
-|  1  | Rust        | [`./day01/`](/day01) |
-|  2  | Typescript  | [`./day02/`](/day02) |
-|  3  | Javascript  | [`./day03/`](/day03) |
-|  4  | Kotlin      | [`./day04/`](/day04) |
-|  5  | Scala       | [`./day05/`](/day05) |
-|  6  | Golang      | [`./day06/`](/day06) |
-|  7  | Perl        | [`./day07/`](/day07) |
-|  8  | Swift       | [`./day08/`](/day08) |
-|  9  | Lua         | [`./day09/`](/day09) |
-| 10  | C#          | [`./day10/`](/day10) |
-| 11  | Haskell     | [`./day11/`](/day11) |
-| 12  | Dart        | [`./day12/`](/day12) |
-| 13  | Ruby        | [`./day13/`](/day13) |
-| 14  | C           | [`./day14/`](/day14) |
-| 15  | F#          | [`./day15/`](/day15) |
-| 16  | C++         | [`./day16/`](/day16) |
-| 17  | PHP         | [`./day17/`](/day17) |
-| 18  | Python      | [`./day18/`](/day18) |
-| 19  | Zig         | [`./day19/`](/day19) |
-| 20  | Java        | [`./day20/`](/day20) |
-| 21  | Julia       | [`./day21/`](/day21) |
-| 22  | Elixir      | [`./day22/`](/day22) |
-| 23  | Erlang      | [`./day23/`](/day23) |
-| 24  | Clojure     | [`./day24/`](/day24) |
-| 25  | Rust(again) | [`./day25/`](/day25) |
+| Day | Language    | Link                   |
+| :-: | ----------- | ---------------------- |
+|  1  | Rust        | [`./day-01/`](/day-01) |
+|  2  | Typescript  | [`./day-02/`](/day-02) |
+|  3  | Javascript  | [`./day-03/`](/day-03) |
+|  4  | Kotlin      | [`./day-04/`](/day-04) |
+|  5  | Scala       | [`./day-05/`](/day-05) |
+|  6  | Golang      | [`./day-06/`](/day-06) |
+|  7  | Perl        | [`./day-07/`](/day-07) |
+|  8  | Swift       | [`./day-08/`](/day-08) |
+|  9  | Lua         | [`./day-09/`](/day-09) |
+| 10  | C#          | [`./day-10/`](/day-10) |
+| 11  | Haskell     | [`./day-11/`](/day-11) |
+| 12  | Dart        | [`./day-12/`](/day-12) |
+| 13  | Ruby        | [`./day-13/`](/day-13) |
+| 14  | C           | [`./day-14/`](/day-14) |
+| 15  | F#          | [`./day-15/`](/day-15) |
+| 16  | C++         | [`./day-16/`](/day-16) |
+| 17  | PHP         | [`./day-17/`](/day-17) |
+| 18  | Python      | [`./day-18/`](/day-18) |
+| 19  | Zig         | [`./day-19/`](/day-19) |
+| 20  | Java        | [`./day-20/`](/day-20) |
+| 21  | Julia       | [`./day-21/`](/day-21) |
+| 22  | Elixir      | [`./day-22/`](/day-22) |
+| 23  | Erlang      | [`./day-23/`](/day-23) |
+| 24  | Clojure     | [`./day-24/`](/day-24) |
+| 25  | Rust(again) | [`./day-25/`](/day-25) |
 
 ## Small review about all languages with score
 
