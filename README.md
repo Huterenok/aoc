@@ -133,3 +133,5 @@ Again? Sure, perfect^2 - 5/5
 ## Gratitude
 
 I want to thank all internet resources, all language docs, all threads about AoC and LLMs for helping me to pass this challenge
+
+![Final](final.png)
