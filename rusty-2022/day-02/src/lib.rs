@@ -1,5 +1,3 @@
-use std::ops::{Add, Sub};
-
 pub fn win_almost_every_game(input: &str) -> usize {
     let data = parse_data(input);
     data.into_iter().fold(0, |acc, (left, right)| {
