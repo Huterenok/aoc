@@ -1,7 +1,7 @@
 struct Solution;
 
 impl Solution {
-    pub fn part1(input: String) -> u32 {
+    pub fn part1(input: &str) -> u32 {
         input
             .lines()
             .map(|line| line.chars().filter(|c| c.is_digit(10)))
@@ -12,7 +12,7 @@ impl Solution {
             })
     }
 
-    pub fn part2(input: String) -> u32 {
+    pub fn part2(input: &str) -> u32 {
         let str_digits = [
             "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
         ];
@@ -46,19 +46,16 @@ impl Solution {
 mod tests {
     use crate::Solution;
 
-    fn setup_test() -> String {
+    fn setup_test() -> (String) {
         std::fs::read_to_string("./input.txt").unwrap()
     }
 
     #[test]
-    fn part1() {
-        let input = self::setup_test();
-        assert_eq!(Solution::part1(input), 53194);
-    }
+    fn yays() {
+        let input = std::fs::read_to_string("./input.txt").unwrap();
+        let example_input = std::fs::read_to_string("./example_input.txt").unwrap();
 
-    #[test]
-    fn part2() {
-        let input = self::setup_test();
-        assert_eq!(Solution::part2(input), 54249);
+        assert_eq!(Solution::part1(&input), 53194);
+        assert_eq!(Solution::part2(&input), 54249);
     }
 }
