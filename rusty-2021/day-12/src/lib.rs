@@ -2,17 +2,17 @@ use std::collections::{HashMap, HashSet};
 
 fn find_paths_tuda_suda(input: &str) -> usize {
     let caves = parse_caves(input);
-    move_through_caves("start", &mut HashSet::new(), true, &caves)
+    move_through_caves("start", &mut Vec::new(), true, &caves)
 }
 
 fn find_paths_tuda_suda_tuda_suda(input: &str) -> usize {
     let caves = parse_caves(input);
-    move_through_caves("start", &mut HashSet::new(), false, &caves)
+    move_through_caves("start", &mut Vec::new(), false, &caves)
 }
 
 fn move_through_caves<'a>(
     prev_path: &'a str,
-    visited: &mut HashSet<&'a str>,
+    visited: &mut Vec<&'a str>,
     mut visit_twice: bool,
     caves: &'a HashMap<&str, Vec<&str>>,
 ) -> usize {
@@ -20,22 +20,22 @@ fn move_through_caves<'a>(
         return 1;
     }
 
-    if (prev_path.chars().next().unwrap() as u8) >= b'a' && visited.contains(prev_path) {
+    if (prev_path.chars().next().unwrap() as u8) >= b'a' && visited.contains(&prev_path) {
         if visit_twice || prev_path == "start" {
             return 0;
         }
         visit_twice = true;
     }
-    visited.insert(prev_path);
-    caves
+    visited.push(prev_path);
+    let res = caves
         .get(prev_path)
         .unwrap()
         .into_iter()
         .fold(0, |acc, next_path| {
-            // xd
-            let mut visited = HashSet::from_iter(visited.iter().cloned());
-            acc + move_through_caves(next_path, &mut visited, visit_twice, caves)
-        })
+            acc + move_through_caves(next_path, visited, visit_twice, caves)
+        });
+    visited.pop();
+    res
 }
 
 fn parse_caves<'a>(input: &'a str) -> HashMap<&'a str, Vec<&'a str>> {
