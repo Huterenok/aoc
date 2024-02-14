@@ -41,7 +41,8 @@ fn lets_big_lit(input: &str) -> usize {
 
             litted.len() == dumbos.iter().flatten().count()
         })
-        .unwrap() + 1
+        .unwrap()
+        + 1
 }
 
 fn lit(dumbos: &mut [Vec<u32>], (x, y): (u64, u64), litted: &mut HashSet<(u64, u64)>) {
@@ -88,7 +89,7 @@ mod tests {
         assert_eq!(res1_example, 1656);
         assert_eq!(res1, 1655);
 
-				let res2_example = lets_big_lit(&example_input);
+        let res2_example = lets_big_lit(&example_input);
         let res2 = lets_big_lit(&input);
         assert_eq!(res2_example, 195);
         assert_eq!(res2, 337);
