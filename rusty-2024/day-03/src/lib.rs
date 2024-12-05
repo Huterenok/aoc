@@ -57,8 +57,8 @@ pub fn parse_mul_expr(expr: &str) -> Option<(usize, usize)> {
     let first_num = mul1.parse::<usize>().ok()?;
     let (end_idx, second_num) = mul2
         .as_bytes()
-        .into_iter()
-        .take_while(|b| matches!(b, b'0'..=b'9'))
+        .iter()
+        .take_while(|b| b.is_ascii_digit())
         .map(|b| (b - b'0') as usize)
         .enumerate()
         .reduce(|(_, num), (idx, digit)| (idx, num * 10 + digit))?;
