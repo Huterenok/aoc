@@ -37,7 +37,7 @@ pub fn loop_it_till_she_die(input: &str) -> usize {
     visited
         .iter()
         .filter(|&&new_obs_pos| {
-            let mut guard = guard.clone();
+            let mut guard = guard;
             let mut revisited_states = HashSet::new();
 
             while guard.check_bounds(&lab) {
@@ -62,7 +62,7 @@ pub fn loop_it_till_she_die(input: &str) -> usize {
 fn visited_places(lab: &Lab, mut guard: GuardState) -> HashSet<Point> {
     let mut visited = HashSet::new();
 
-    while guard.check_bounds(&lab) {
+    while guard.check_bounds(lab) {
         visited.insert(guard.pos);
 
         let maybe_next_pos = guard.pos + guard.flow;
